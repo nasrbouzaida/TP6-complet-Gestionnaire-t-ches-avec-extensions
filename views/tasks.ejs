@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Tâches</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Tâches (Total : <%= total %>)</h1>
+  <ul>
+    <% tasks.forEach(task => { %>
+      <li><%= task.title %> - <%= task.done ? 'Terminée' : 'En cours' %></li>
+    <% }) %>
+  </ul>
+  <!-- Formulaire pour ajouter tâche (extension 6) -->
+  <form action="/api/tasks" method="POST">
+    <input type="text" name="title" placeholder="Nouvelle tâche" required>
+    <button type="submit">Ajouter</button>
+  </form>
+  <a href="/">Retour accueil</a>
+  <script>
+    // Recharge page après soumission
+    document.querySelector('form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      await fetch('/api/tasks', { method: 'POST', body: formData });
+      location.reload();
+    });
+  </script>
+</body>
+</html>
