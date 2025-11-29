@@ -43,5 +43,4 @@ Ce projet implémente un gestionnaire de tâches simple avec Express.js pour le 
 - Plus de CRUD (update/delete).
 
 ## Auteur
-- Votre Nom.
-- Basé sur TP6.pdf.
+-NASR BOUZAIDA
